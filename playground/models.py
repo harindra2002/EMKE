@@ -11,8 +11,10 @@ class Doctor(models.Model):
     #state=models.CharField(help_text="Which state's medical council?",max_length=15)
     #year=models.CharField(max_length=5)
     password = models.CharField(max_length=100,default="password")
+    
     class Meta:
         db_table='Doctor'
+        
 class Patient(models.Model):
     CHOICES =(
     ("1", "Male"),
@@ -25,6 +27,7 @@ class Patient(models.Model):
     Age=models.IntegerField()
     Gender=models.CharField(choices=CHOICES,max_length=10)
     UniqueConstraint(fields=['patient_id','doctor_id'],name='p_key')
+    
     class Meta:
         db_table='patient'
 
@@ -36,7 +39,7 @@ class Patient(models.Model):
     disease_name=models.CharField(max_length=100)
 
     class Meta:
-        db_table='Report'''
+        db_table="Report" '''
 
  
     

@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'EMKE.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'emke',
-        'USER':'root',
-        'PASSWORD':'Hari@2803',
+        'NAME':'EMKE_1',
+        'USER':'djangouser',
+        'PASSWORD':'Shashank@123',
         'HOST':'127.0.0.1',
         'PORT':'3306',
         'OPTIONS': {
