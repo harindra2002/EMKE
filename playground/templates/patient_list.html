@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Patients List</h2>
+
+<table>
+  <tr>
+    <th>Patient First name</th>
+    <th>Patient Last name</th>
+    <th>Age</th>
+  </tr>
+  {% for x in patient_data %}
+    <tr>
+        <form id="form1" action='http://127.0.0.1:8000/get_records/' method="POST">
+            {% csrf_token %} 
+        <input type="hidden" name="id" value="{{ x.patient_id }}">
+        <input type="hidden" name="doc_id" value="{{ id }}">
+        </form>
+
+     <td><input type="submit" value="{{x.patient_id}}" form="form1" /></td>
+      <td>{{ x.first_name }}</td>
+      <td>{{ x.last_name }}</td>
+    </tr>
+
+  {% endfor %}
+
+
+  
+</table>
+
+</body>
+</html>

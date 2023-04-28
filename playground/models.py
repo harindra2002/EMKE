@@ -27,5 +27,16 @@ class Patient(models.Model):
     UniqueConstraint(fields=['patient_id','doctor_id'],name='p_key')
     class Meta:
         db_table='patient'
+
+'''class Report(models.Models):
+    report_id=models.IntegerField(primary_key=True, default=uuid.uuid4().int % 100000, editable=False, unique=True)
+    patient_id=models.ForeignKey(Patient,on_delete=models.CASCADE)
+    doctor_id=models.ForeignKey(Doctor,on_delete=models.CASCADE)
+    timestamp=models.DateTimeField(auto_now_add=True)
+    disease_name=models.CharField(max_length=100)
+
+    class Meta:
+        db_table='Report'''
+
  
     

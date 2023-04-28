@@ -94,6 +94,15 @@ def add_patient(request):
     return render(request,'add_patients.html',context)
 
 def view_patients(request):
+    doc_id=request.POST["id"]
+    data=Patient.objects.filter(doctor_id_id=doc_id)
+    context={}
+    context["id"]=doc_id
+    context["patient_data"]=data
+    return render(request,'patient_list.html',context)
+
+def get_records(request):
+    #perform query from db and replace placeholders with values for that record.html
     return HttpResponse(request)
 
 def login_doctor(request):
